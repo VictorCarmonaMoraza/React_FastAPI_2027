@@ -1,4 +1,8 @@
+import { listarLibros } from "./api/libros";
+
 function App() {
+
+  listarLibros();
   return (
     <main className="min-h-screen bg-[#212529] px-6 py-5 text-white">
       <div className="mx-auto max-w-5xl">
