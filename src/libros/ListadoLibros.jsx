@@ -25,7 +25,7 @@ setLibros(data);
         Listado de Libros
       </h2>
 
-             <p className="mx-auto mt-10 max-w-[760px] text-[22px] leading-[1.55] text-white">
+             <p className="mx-auto mt-10 text-center text-[22px] leading-[1.55] text-white">
           Aquí podrás visualizar todos los libros registrados en el sistema.
         </p>
 
