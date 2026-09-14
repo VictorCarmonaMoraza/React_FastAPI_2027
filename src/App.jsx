@@ -1,13 +1,17 @@
 function App() {
   return (
-    <div className="container text-center mt-4">
-      <h1 className="text-warning">
-        <i className="bi bi-book"></i> Biblioteca Personal
-      </h1>
-      <p className="text-center text-light mt-3">
-        Aplicacion React + Vite usando bootstrap en modo oscuro.
-      </p>
-    </div>
+    <main className="min-h-screen bg-[#212529] px-6 py-5 text-white">
+      <div className="mx-auto max-w-5xl">
+        <h1 className="text-center text-[52px] font-semibold leading-none text-[#ffc107]">
+          <i aria-hidden="true" className="bi bi-book mr-3 align-middle text-[0.9em]"></i>
+          <span className="align-middle">Biblioteca Personal</span>
+        </h1>
+
+        <p className="mt-8 text-center text-[20px] text-white">
+          Aplicacion React + Vite usando bootstrap en modo oscuro.
+        </p>
+      </div>
+    </main>
   )
 }
 
