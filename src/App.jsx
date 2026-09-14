@@ -1,5 +1,7 @@
 import ListadoLibros from "./libros/ListadoLibros";
+import AgregarLibro from "./libros/AgregarLibro";
 import Navegacion from "./componentes/Navegacion";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -7,9 +9,10 @@ function App() {
 
       <Navegacion />
 
-      <div className="mx-auto max-w-5xl px-6 pt-12">
-        <ListadoLibros />
-      </div>
+      <Routes>
+        <Route path="/" element={<ListadoLibros />} />
+        <Route path="/agregar" element={<AgregarLibro />} />
+      </Routes>
 
     </main>
   );

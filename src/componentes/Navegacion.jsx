@@ -16,10 +16,10 @@ function Navegacion() {
         <div className="flex items-center">
           <NavLink
             className="flex items-center text-white no-underline hover:text-yellow-400"
-            to="/"
+            to="/agregar"
           >
             <i className="bi bi-list mr-2"></i>
-            Libros
+            Agregar
           </NavLink>
         </div>
 
