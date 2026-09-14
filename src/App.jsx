@@ -1,20 +1,12 @@
-import { listarLibros } from "./api/libros";
+import ListadoLibros from "./libros/ListadoLibros"
 
 function App() {
-
-  listarLibros();
   return (
-    <main className="min-h-screen bg-[#212529] px-6 py-5 text-white">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="text-center text-[52px] font-semibold leading-none text-[#ffc107]">
-          <i aria-hidden="true" className="bi bi-book mr-3 align-middle text-[0.9em]"></i>
-          <span className="align-middle">Biblioteca Personal</span>
-        </h1>
+    <main className="min-h-screen bg-[#212529] px-6 pt-4 text-white">
 
-        <p className="mt-8 text-center text-[20px] text-white">
-          Aplicacion React + Vite usando bootstrap en modo oscuro.
-        </p>
-      </div>
+      {/* [NUEVO] Mostrar el componente del Listado */}
+      <ListadoLibros />
+
     </main>
   )
 }
