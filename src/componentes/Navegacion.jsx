@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 function Navegacion() {
   return (
-    <nav className="bg-gray-800 text-white shadow-md">
+    <nav className="bg-gray-800 text-[#ffc107] shadow-md">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
 
         <NavLink
-          className="flex items-center text-xl font-semibold text-white no-underline"
+          className="flex items-center text-xl font-semibold text-[#ffc107] no-underline"
           to="/"
         >
           <i className="bi bi-book mr-2"></i>
@@ -15,7 +15,11 @@ function Navegacion() {
 
         <div className="flex items-center">
           <NavLink
-            className="flex items-center text-white no-underline hover:text-yellow-400"
+            className={({ isActive }) =>
+              `flex items-center no-underline transition ${
+                isActive ? "text-[#ffc107]" : "text-[#ffc107] hover:text-yellow-300"
+              }`
+            }
             to="/agregar"
           >
             <i className="bi bi-list mr-2"></i>

@@ -20,12 +20,12 @@ setLibros(data);
 
   return (
     <div className="mx-auto mt-8 max-w-5xl">
-      <h2 className="text-center text-3xl font-semibold text-white">
+      <h2 className="text-center text-3xl font-semibold text-[#ffc107]">
         <i className="bi bi-book mr-2"></i>
         Listado de Libros
       </h2>
 
-             <p className="mx-auto mt-10 text-center text-[22px] leading-[1.55] text-white">
+             <p className="mx-auto mt-10 text-center text-[22px] leading-[1.55] text-[#ffc107]">
           Aquí podrás visualizar todos los libros registrados en el sistema.
         </p>
 
