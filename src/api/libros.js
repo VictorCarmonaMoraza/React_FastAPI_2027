@@ -57,7 +57,8 @@ async function buscarLibroPorId(id) {
   return respuesta.data;
 }
 
-async function editarLibro(id, libro) {
+
+async function actualizarLibro(id, libro) {
   if (!libro.titulo || !libro.titulo.trim()) {
     throw new Error("El título es obligatorio");
   }
@@ -75,7 +76,8 @@ async function editarLibro(id, libro) {
   }
 
   const respuesta = await api.put(`/${id}`, libro);
+
   return respuesta.data;
 }
 
-export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId, editarLibro };
+export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId, actualizarLibro };
