@@ -25,6 +25,17 @@ function Navegacion() {
             <i className="bi bi-list mr-2"></i>
             Agregar
           </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `flex items-center no-underline transition ${
+                isActive ? "text-[#ffc107]" : "text-[#ffc107] hover:text-yellow-300"
+              }`
+            }
+            to="/buscar-por-id"
+          >
+            <i className="bi bi-list mr-2"></i>
+            BuscarPorId
+          </NavLink>
         </div>
 
       </div>

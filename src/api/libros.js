@@ -51,5 +51,12 @@ async function crearLibro(libro) {
   // Devolvemos el libro creado por el backend.
   return respuesta.data;
 }
+
+// Busca un libro por su ID
+async function buscarLibroPorId(id) {
+  debugger;
+  const respuesta = await api.get(`/${id}`);
+  return respuesta.data;
+}
     
-export { api, urlBase, listarLibros, crearLibro };
+export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId };

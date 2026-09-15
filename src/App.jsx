@@ -1,5 +1,6 @@
 import ListadoLibros from "./libros/ListadoLibros";
 import AgregarLibro from "./libros/AgregarLibro";
+import BuscarLibroPorId from "./libros/BuscarLibroPorId";
 import Navegacion from "./componentes/Navegacion";
 import { Routes, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ListadoLibros />} />
         <Route path="/agregar" element={<AgregarLibro />} />
+        <Route path="/buscar-por-id" element={<BuscarLibroPorId />} />
       </Routes>
 
     </main>
