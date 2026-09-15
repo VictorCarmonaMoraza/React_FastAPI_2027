@@ -58,5 +58,10 @@ async function buscarLibroPorId(id) {
   const respuesta = await api.get(`/${id}`);
   return respuesta.data;
 }
+
+async function editarLibro(id) {
+  debugger;
+
+}
     
-export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId };
+export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId, editarLibro };
