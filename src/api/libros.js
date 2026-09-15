@@ -8,7 +8,7 @@ const api = axios.create({
 });
 
 
-// [NUEVO]
+// Servicio para listar todos los libros
 async function listarLibros() {
   try {
     const respuesta = await api.get("/");
@@ -22,7 +22,7 @@ async function listarLibros() {
 
 }
 
-// [NUEVO]
+// Servicio para crear un nuevo libro
 async function crearLibro(libro) {
   // Validamos que el título exista y no esté vacío.
   if (!libro.titulo || !libro.titulo.trim()) {
@@ -57,7 +57,7 @@ async function buscarLibroPorId(id) {
   return respuesta.data;
 }
 
-
+//Servicio para actualizar un libro por su ID
 async function actualizarLibro(id, libro) {
   debugger;
   if (!libro.titulo || !libro.titulo.trim()) {
@@ -81,4 +81,15 @@ async function actualizarLibro(id, libro) {
   return respuesta.data;
 }
 
-export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId, actualizarLibro };
+//servicio para eliminar un libro por su ID
+async function eliminarLibro(id) {
+  try {
+    const respuesta = await api.delete(`/${id}`);
+    return respuesta.data;
+  } catch (error) {
+    console.error("Error al eliminar el libro:", error);
+    throw error;
+  }
+}
+
+export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId, actualizarLibro, eliminarLibro };
