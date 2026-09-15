@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { listarLibros } from "../api/libros";
-
-import { editarLibro } from "../api/libros";
 
 // [MODIFICADO]
 function ListadoLibros() {
   const [libros, setLibros] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function cargarDatos() {
@@ -78,7 +78,7 @@ function ListadoLibros() {
                 <td className="px-4 py-4">
                   <button
                     type="button"
-                    onClick={() => editarLibro(libro.id)}
+                    onClick={() => navigate(`/editar/${libro.id}`)}
                     className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
                   >
                     <i className="bi bi-pencil mr-2"></i>

@@ -10,15 +10,15 @@ const api = axios.create({
 
 // [NUEVO]
 async function listarLibros() {
-    try {
-          const respuesta = await api.get("/");
-            //Imprimir listado de libros
-            console.log(respuesta.data);
-            return respuesta.data;
-    } catch (error) {
-        console.error("Error al listar los libros:", error);
-        throw error;
-    }
+  try {
+    const respuesta = await api.get("/");
+    //Imprimir listado de libros
+    console.log(respuesta.data);
+    return respuesta.data;
+  } catch (error) {
+    console.error("Error al listar los libros:", error);
+    throw error;
+  }
 
 }
 
@@ -59,9 +59,25 @@ async function buscarLibroPorId(id) {
   return respuesta.data;
 }
 
-async function editarLibro(id) {
-  debugger;
+async function editarLibro(id, libro) {
+  if (!libro.titulo || !libro.titulo.trim()) {
+    throw new Error("El título es obligatorio");
+  }
 
+  if (!libro.autor || !libro.autor.trim()) {
+    throw new Error("El autor es obligatorio");
+  }
+
+  if (!Number.isInteger(libro.rating)) {
+    throw new Error("El rating debe ser un número entero");
+  }
+
+  if (libro.rating < 1 || libro.rating > 5) {
+    throw new Error("El rating debe estar entre 1 y 5");
+  }
+
+  const respuesta = await api.put(`/${id}`, libro);
+  return respuesta.data;
 }
-    
+
 export { api, urlBase, listarLibros, crearLibro, buscarLibroPorId, editarLibro };
