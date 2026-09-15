@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 // Importamos las funciones que necesitamos para comunicarnos
 // con nuestra API de FastAPI.
-import { buscarLibroPorId } from "../api/libros";
+import { buscarLibroPorId, actualizarLibro } from "../api/libros";
 
 
 // ============================================================
@@ -16,15 +16,6 @@ import { buscarLibroPorId } from "../api/libros";
 // ============================================================
 
 function EditarLibro() {
-
-  // ----------------------------------------------------------
-  // useNavigate
-  // ----------------------------------------------------------
-  // Nos proporciona la función navigate(), que utilizaremos
-  // para cambiar de página desde JavaScript.
-  const navigate = useNavigate();
-
-
   // ----------------------------------------------------------
   // useParams
   // ----------------------------------------------------------
@@ -38,7 +29,14 @@ function EditarLibro() {
   //
   // id = "5"
   //
-  const { id } = useParams();
+    const { id } = useParams();
+    
+  // ----------------------------------------------------------
+  // useNavigate
+  // ----------------------------------------------------------
+  // Nos proporciona la función navigate(), que utilizaremos
+  // para cambiar de página desde JavaScript.
+  const navigate = useNavigate();
 
   // ----------------------------------------------------------
   // Estados individuales para cada campo del formulario
@@ -55,7 +53,6 @@ function EditarLibro() {
   //
   // También se vuelve a ejecutar si cambia el valor de "id".
     useEffect(() => {
-
 
         // --------------------------------------------------------
         // Función para cargar el libro desde la API
@@ -115,7 +112,29 @@ function EditarLibro() {
         // El efecto depende de "id".
         //
         // Si cambia el ID, volvemos a cargar el libro.
-        }, [id]);
+    }, [id]);
+    
+    async function manejarEnvioFormulario(e) {
+      e.preventDefault();
+
+      try {
+        const libroActualizado={
+            titulo,
+            autor,
+            rating: Number.parseFloat(rating),
+        };
+
+        await actualizarLibro(id, libroActualizado);
+          // Aquí podrías redirigir al usuario o mostrar un mensaje de éxito.
+          alert("Libro actualizado con éxito.");
+          // Redirigir al usuario a la lista de libros después de la actualización.
+          // Por ejemplo, si estás usando react-router-dom:
+          // navigate("/libros");
+          navigate("/");
+      } catch (error) {
+        console.error("Error al actualizar el libro:", error);
+      }
+    }
 
   // ==========================================================
   // INTERFAZ DEL COMPONENTE
@@ -150,7 +169,7 @@ function EditarLibro() {
           FORMULARIO
           ---------------------------------------------------- */}
 
-      <form>
+      <form onSubmit={manejarEnvioFormulario}>
 
 
         {/* ==================================================

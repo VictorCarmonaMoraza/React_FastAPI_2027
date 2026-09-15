@@ -35,8 +35,8 @@ async function crearLibro(libro) {
   }
 
   // Validamos que el rating sea un número entero.
-  if (!Number.isInteger(libro.rating)) {
-    throw new Error("El rating debe ser un número entero");
+  if (!Number.isFinite(libro.rating)) {
+    throw new Error("El rating debe ser un número");
   }
 
   // Validamos que el rating esté entre 1 y 5.
@@ -59,6 +59,7 @@ async function buscarLibroPorId(id) {
 
 
 async function actualizarLibro(id, libro) {
+  debugger;
   if (!libro.titulo || !libro.titulo.trim()) {
     throw new Error("El título es obligatorio");
   }
@@ -67,8 +68,8 @@ async function actualizarLibro(id, libro) {
     throw new Error("El autor es obligatorio");
   }
 
-  if (!Number.isInteger(libro.rating)) {
-    throw new Error("El rating debe ser un número entero");
+  if (!Number.isFinite(libro.rating)) {
+    throw new Error("El rating debe ser un número");
   }
 
   if (libro.rating < 1 || libro.rating > 5) {
