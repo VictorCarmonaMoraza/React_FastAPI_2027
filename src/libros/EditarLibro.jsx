@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 // Importamos las funciones que necesitamos para comunicarnos
 // con nuestra API de FastAPI.
-import { buscarLibroPorId, actualizarLibro } from "../api/libros";
+import { buscarLibroPorId } from "../api/libros";
 
 
 // ============================================================
@@ -40,20 +40,12 @@ function EditarLibro() {
   //
   const { id } = useParams();
 
-
   // ----------------------------------------------------------
-  // Estado del formulario
+  // Estados individuales para cada campo del formulario
   // ----------------------------------------------------------
-  // formulario contiene los valores actuales de los campos
-  // Título, Autor y Rating.
-  //
-  // Inicialmente todos están vacíos.
-  const [formulario, setFormulario] = useState({
-    titulo: "",
-    autor: "",
-    rating: "",
-  });
-
+  const [titulo, setTitulo] = useState("");
+  const [autor, setAutor] = useState("");
+  const [rating, setRating] = useState("");
 
   // ==========================================================
   // CARGAR EL LIBRO
