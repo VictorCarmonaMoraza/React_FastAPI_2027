@@ -24,7 +24,6 @@ async function listarLibros() {
 
 // [NUEVO]
 async function crearLibro(libro) {
-  debugger;
   // Validamos que el título exista y no esté vacío.
   if (!libro.titulo || !libro.titulo.trim()) {
     throw new Error("El título es obligatorio");
@@ -54,7 +53,6 @@ async function crearLibro(libro) {
 
 // Busca un libro por su ID
 async function buscarLibroPorId(id) {
-  debugger;
   const respuesta = await api.get(`/${id}`);
   return respuesta.data;
 }
